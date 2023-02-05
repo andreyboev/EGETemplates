@@ -37,26 +37,26 @@
 '''
 
 
-def game(heap, moves, toWin):
+def game(heap, moves, to):
     if heap >= 106:
-        return moves % 2 == toWin % 2
-    if moves == toWin:
+        return moves % 2 == to % 2
+    if moves == to:
         return 0
-    h = [game(heap + 1, moves + 1, toWin),
-         game(heap * 2, moves + 1, toWin)]
+    h = [game(heap + 1, moves + 1, to),
+         game(heap * 2, moves + 1, to)]
 
     return any(h)
 
 
-def game2(heap, moves, toWin):
+def game2(heap, moves, to):
     if heap >= 106:
-        return moves % 2 == toWin % 2
-    if moves == toWin:
+        return moves % 2 == to % 2
+    if moves == to:
         return 0
-    h = [game2(heap + 1, moves + 1, toWin),
-         game2(heap * 2, moves + 1, toWin)]
+    h = [game2(heap + 1, moves + 1, to),
+         game2(heap * 2, moves + 1, to)]
 
-    return any(h) if (moves + 1) % 2 == toWin % 2 else all(h)
+    return any(h) if (moves + 1) % 2 == to % 2 else all(h)
 
 
 print('19: ', min(s for s in range(1, 106) if not game(s, 0, 1) and game(s, 0, 2)))

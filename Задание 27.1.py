@@ -25,7 +25,7 @@
 Ответ: 157076 16371318320559
 '''
 
-data = list(map(int, open("27.1_A.txt").readlines()))
+data = list(map(int, open("27.1_B.txt").readlines()))
 del data[0]
 doubleData = data * 2
 s = 0

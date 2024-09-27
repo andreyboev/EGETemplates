@@ -60,7 +60,7 @@ def get_results():
 def clamp(n, smallest, largest): return max(smallest, min(n, largest))
 
 def show_available_task(tasks: list):
-    square_size = 1  # Размер квадрата
+    square_size = 1   # Размер квадрата
     spacing = 0.2     # Промежуток между квадратами
     columns = 10      # Количество значений в строке
 
@@ -142,10 +142,10 @@ def pytest_sessionfinish(session, exitstatus):
     values = [item[4] for item in types]
 
     norm = Normalize(vmin=0, vmax=100)
-    cmap = LinearSegmentedColormap.from_list("red_green", ["red", "yellow", "green"])
+    cmap = LinearSegmentedColormap.from_list("red_green", ["red", "orange", "green"])
     colors = cmap(norm(values))
 
-    plt.bar(t, values, width=1.1, color=colors)
+    plt.bar(t, values, width=0.8, color=colors)
     plt.xlabel('Тип задания')
     plt.ylabel('Значение')
     plt.title('Уровень подготовки')

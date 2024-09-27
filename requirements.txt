@@ -2,4 +2,4 @@ pytest-xdist~=3.2.0
 pytest-timeout~=2.1.0
 pytest-env~= 0.8.1
 pytest~=8.1.1
-matplotlib~=3.6.3
+matplotlib~=3.9.2

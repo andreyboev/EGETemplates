@@ -52,7 +52,7 @@ class TestType_3:
     @pytest.mark.skipif(not os.path.exists(file_paths[11]), reason="Ещё не решено")
     def test_12(self):
         result = subprocess.run(['python', file_paths[11]], text=True, stdout=subprocess.PIPE,
-                                stderr=subprocess.PIPE)
+                                stderr=subprocess.PIPE, encoding='utf-8')
         hash = hashlib.md5(result.stdout.strip().encode()).hexdigest()
         assert hash == 'c3a268e16fb2c7ae9f2c1ef90d42008f', "Script failed to run successfully"
 

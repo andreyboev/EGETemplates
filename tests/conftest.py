@@ -1,13 +1,15 @@
 import os
 import re
+import sys
 from datetime import datetime
 
 import pytest
 import sqlite3
 
-from matplotlib import pyplot as plt, patches
+from matplotlib import pyplot as plt, patches, animation
 from matplotlib.colors import Normalize, LinearSegmentedColormap
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+from sympy.physics.quantum.circuitplot import pyplot
 
 
 def create_new_db():
@@ -198,3 +200,9 @@ def pytest_sessionfinish(session, exitstatus):
 
     fig.tight_layout()
     fig.show()
+
+    fig.savefig('results.png')
+    if sys.platform.startswith('darwin'):
+        os.system('open results.png')
+    elif sys.platform.startswith('win'):
+        os.startfile('results.png')
